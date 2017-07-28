@@ -1,38 +1,21 @@
 language: java
-
 jdk:
   - openjdk8
-
 cache:
   directories:
     - $HOME/.m2/repository
-
 branches:
   only:
     - master
     - dev
     - staging
     - production
-
-before_install: "echo 'before_install'"
-
-install: "echo 'install'"
-
-before_script: "echo 'before_script'"
-
+before_install: echo 'before_install'
+install: echo 'install'
+before_script: echo 'before_script'
 script: mvn clean package
-
-#after_success
-
-#after_failure
-
-before_deploy: "echo 'before_deploy'"
-
-#deploy:
-#  skip_cleanup: true
-
-after_deploy: "echo 'after_deploy'"
-
+before_deploy: echo 'before_deploy'
+after_deploy: echo 'after_deploy'
 notifications:
   email:
     recipients:
@@ -40,9 +23,5 @@ notifications:
     on_success: always
     on_failure: always
   slack:
-    rooms:
-      - 104corp:$SLACK_TOKEN#dtt-travisci
-    on_success: always
-    on_failure: always
-
-after_script: "echo 'after_deploy'"
+    secure: D8Gr3117LOmMCqOJxAv1DYDOnP19lmamFKyNXBhOj+TvhxYPWKjotFhiyVKWmkfXqr6L5bO5V7MvnOI9ABP8ldrE7rC8P8MiyCD2ctcILFsbf7iijDFrhcT+6bA4xvC7KBDUa200i7WnDlWZqYBto/hPhmXHSvH/gEgTc1TqPYdqGfNq3yp5gDqFN06lvZWoeKyIrPhOpDRJBKb6Erb/8hEXc+agdja+5tr2Wyii3k0NEJevwrSRCQ0Qg72izW3Jc7dYSL0SW6Qt93fCoQORdNae/KbZ4cwubf+qimnJfCwI/oRQOYBxTvhLyRFtYpqotgJrFUmtKCg6En+Lup4ywEAh9Q6gIk/+L4JUG7wDdAWqeF63HD1Xmsg4BWW2DrDa1wCWflXlitMFpC9m5i8dsaWCwYt8q1SAMvc8+p62xpHM2/k/1rU1/4aYMfZ0f2c/b+Mvaqo01ocw5rLjnwGknGtZehmE1BWqKjNJZIPR66tOsvOAzgZvpAqchhlUXXuNOnrebQm3Dvo91bTjpVDe7UwXMKBrlsRz6tf5hBrG/WHuZkGizfnmHpC1TcHXV3CY+Lxx5+48vYt3gD2dCTNdW6OU4i8+3180IbuWGadosox80h/Ldne99oWvZ5RtbW+1Oe4XvtPgHVqFuPNY1+hzyohfc0P2ADyCCtFc5ExKbqk=
+after_script: echo 'after_script'
