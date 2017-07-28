@@ -1,0 +1,48 @@
+language: java
+
+jdk:
+  - openjdk8
+
+cache:
+  directories:
+    - $HOME/.m2/repository
+
+branches:
+  only:
+    - master
+    - dev
+    - staging
+    - production
+
+before_install: "echo 'before_install'"
+
+install: "echo 'install'"
+
+before_script: "echo 'before_script'"
+
+script: mvn clean package
+
+#after_success
+
+#after_failure
+
+before_deploy: "echo 'before_deploy'"
+
+#deploy:
+#  skip_cleanup: true
+
+after_deploy: "echo 'after_deploy'"
+
+notifications:
+  email:
+    recipients:
+      - gavin.lin@104.com.tw
+    on_success: always
+    on_failure: always
+  slack:
+    rooms:
+      - 104corp:$SLACK_TOKEN#dtt-travisci
+    on_success: always
+    on_failure: always
+
+after_script: "echo 'after_deploy'"
